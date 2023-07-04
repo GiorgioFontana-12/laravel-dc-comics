@@ -16,6 +16,16 @@ return new class extends Migration
         Schema::create('comix_models', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->string("title", 50);
+            $table->text("description")->nullable();
+            $table->text("thumb");
+            $table->string("price");
+            $table->string("series", 50);
+            $table->date("sale_date");
+            $table->string("type");
+            $table->text("artists")->nullable();
+            $table->text("writers")->nullable();
         });
     }
 
