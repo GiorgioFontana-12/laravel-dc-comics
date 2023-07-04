@@ -15,12 +15,9 @@ use App\Http\Controllers\ComicsController;
 */
 Route::resource("comics", ComicsController::class);
 
-Route::get('/', function () {
-    $links = config('store.someLinks');
-    return view('welcome', compact('links'));
-});
+Route::get('/', [ComicsController::class, "index"])->name("home");
 
-Route::get('/otherpage', function () {
-    $links = config('store.someLinks');
-    return view('other', compact('links'));
-});
+// Route::get('/otherpage', function () {
+//     $links = config('store.someLinks');
+//     return view('other', compact('links'));
+// });
