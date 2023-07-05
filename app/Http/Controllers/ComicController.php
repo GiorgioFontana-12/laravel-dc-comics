@@ -87,18 +87,18 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        $newComic ->title = $data["title"];
-        $newComic ->description = $data["description"];
-        $newComic ->thumb = $data["thumb"];
-        $newComic ->price = $data["price"];
-        $newComic ->series = $data["series"];
-        $newComic ->sale_date = $data["sale_date"];
-        $newComic ->type = $data["type"];
-        $newComic ->artists = json_encode($data["artists"]);
-        $newComic ->writers = json_encode($data["writers"]);
-        $newComic -> update();
+        $comic ->title = $data["title"];
+        $comic ->description = $data["description"];
+        $comic ->thumb = $data["thumb"];
+        $comic ->price = $data["price"];
+        $comic ->series = $data["series"];
+        $comic ->sale_date = $data["sale_date"];
+        $comic ->type = $data["type"];
+        $comic ->artists = json_encode($data["artists"]);
+        $comic ->writers = json_encode($data["writers"]);
+        $comic -> update();
         
-        return redirect()->route('comics.show', $Comic->id);
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
