@@ -71,9 +71,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("comic.edit", compact("comic") );
     }
 
     /**
@@ -85,7 +85,20 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $newComic ->title = $data["title"];
+        $newComic ->description = $data["description"];
+        $newComic ->thumb = $data["thumb"];
+        $newComic ->price = $data["price"];
+        $newComic ->series = $data["series"];
+        $newComic ->sale_date = $data["sale_date"];
+        $newComic ->type = $data["type"];
+        $newComic ->artists = json_encode($data["artists"]);
+        $newComic ->writers = json_encode($data["writers"]);
+        $newComic -> update();
+        
+        return redirect()->route('comics.show', $Comic->id);
     }
 
     /**
