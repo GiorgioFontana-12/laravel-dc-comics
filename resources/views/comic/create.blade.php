@@ -14,21 +14,26 @@
                 <label for="name">description</label>
                 <textarea name="description" class="form-control" cols="30" rows="5"></textarea>
 
+                <label for="name">thumb</label>
+                <input class="form-control" type="text" name="thumb">
+
+                <label for="name">price</label>
+                <input class="form-control" type="number" name="price">
+
+                <label for="name">series</label>
+                <input class="form-control" type="text" name="series">
+
+                <label for="name">sale_date</label>
+                <input class="form-control" type="date" name="sale_date">
+
                 <label for="name">type</label>
-                <select class="form-control" name="type">
-                    <option value="Commedia">Commedia</option>
-                    <option value="Azione">Azione</option>
-                    <option value="Avventura">Avventura</option>
-                </select>
+                <input class="form-control" type="text" name="type">
 
-                <label for="name">image</label>
-                <input class="form-control" type="text" name="image">
+                <label for="name">artists</label>
+                <input class="form-control" type="text" name="artists">
 
-                <label for="name">cooking_time</label>
-                <input class="form-control" type="text" name="cooking_time">
-
-                <label for="name">weight</label>
-                <input class="form-control" type="text" name="weight">
+                <label for="name">writers</label>
+                <input class="form-control" type="text" name="writers">
 
                 <input class="form-control mt-4 btn btn-primary" type="submit" value="Invia">
              </form>

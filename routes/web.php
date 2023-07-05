@@ -15,7 +15,7 @@ use App\Http\Controllers\ComicController;
 */
 Route::resource("comics", ComicController::class);
 
-// Route::get('/', [ComicController::class, "index"])->name("home");
+Route::get('/', [ComicController::class, "index"])->name("home");
 
 // Route::get('/otherpage', function () {
 //     $links = config('store.someLinks');
