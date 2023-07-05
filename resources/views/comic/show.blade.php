@@ -9,7 +9,7 @@
     <h2>{{$comic->artists}}</h2>
     <div class="row g-4">
         <div class="col">
-            <a href="{{ route("home") }}">Torna alla lista prodotti</a>
+            <a href="{{ route("comics.index") }}">Torna alla lista prodotti</a>
         </div>
     </div>
 

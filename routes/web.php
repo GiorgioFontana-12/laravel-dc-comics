@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ComicsController;
+use App\Http\Controllers\ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +13,9 @@ use App\Http\Controllers\ComicsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource("comics", ComicsController::class);
+Route::resource("comics", ComicController::class);
 
-Route::get('/', [ComicsController::class, "index"])->name("home");
+// Route::get('/', [ComicController::class, "index"])->name("home");
 
 // Route::get('/otherpage', function () {
 //     $links = config('store.someLinks');
