@@ -39,18 +39,18 @@ class ComicController extends Controller
         $data = $request->all();
 
         $newComic = new Comic();
-        $newComic ->title = $comic["title"];
-        $newComic ->description = $comic["description"];
-        $newComic ->thumb = $comic["thumb"];
-        $newComic ->price = $comic["price"];
-        $newComic ->series = $comic["series"];
-        $newComic ->sale_date = $comic["sale_date"];
-        $newComic ->type = $comic["type"];
-        $newComic ->artists = json_encode($comic["artists"]);
-        $newComic ->writers = json_encode($comic["writers"]);
+        $newComic ->title = $data["title"];
+        $newComic ->description = $data["description"];
+        $newComic ->thumb = $data["thumb"];
+        $newComic ->price = $data["price"];
+        $newComic ->series = $data["series"];
+        $newComic ->sale_date = $data["sale_date"];
+        $newComic ->type = $data["type"];
+        $newComic ->artists = json_encode($data["artists"]);
+        $newComic ->writers = json_encode($data["writers"]);
         $newComic -> save();
         
-        return redirect()->route('comic.show', $newComic->id);
+        return redirect()->route('comics.show', $newComic->id);
     }
 
     /**
@@ -94,8 +94,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
