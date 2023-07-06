@@ -28,6 +28,24 @@ class ComicController extends Controller
         return view("comic.create");
     }
 
+    private function validateComic($data) {
+        $validator = Validator::make($data,[
+            "title"=>"reqiored|min:5|max:50",            
+            "description"=>"required|min:5|max:65535",
+            "thumb"=>"required|max:255",            
+            "price"=>"required|numeric|between:0,9999999999.99",       
+            "series"=>"min:5|max:50",            
+            "sale_date"=>"required|date",            
+            "type"=>"required",            
+            "artists"=>"required|min:5|max:65535",            
+            "writers"=>"required|min:5|max:65535"
+        ],[
+
+        ])->validate();
+
+        return $validator;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
