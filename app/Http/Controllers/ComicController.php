@@ -54,7 +54,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $this->validateComic($request->all());
 
         $newComic = new Comic();
         $newComic ->title = $data["title"];
