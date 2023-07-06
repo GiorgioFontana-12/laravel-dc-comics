@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class ComicController extends Controller
 
     private function validateComic($data) {
         $validator = Validator::make($data,[
-            "title"=>"reqiored|min:5|max:50",            
+            "title"=>"required|min:5|max:50",            
             "description"=>"required|min:5|max:65535",
             "thumb"=>"required|max:255",            
             "price"=>"required|numeric|between:0,9999999999.99",       
@@ -103,7 +104,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $data = $request->all();
+        $data = $this->validateComic( $request->all());
 
         $comic ->title = $data["title"];
         $comic ->description = $data["description"];
